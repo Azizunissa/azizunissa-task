@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Master - Progress Tracking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Task Master</h1>
+            <p class="tagline">Track your task progress and stay organized</p>
+        </header>
+        
+        <div class="main-content">
+            <main class="tasks-main">
+                <div class="input-section">
+                    <div class="input-row">
+                        <input type="text" id="task-input" placeholder="Enter a new task..." />
+                        <button id="add-btn">Add Task</button>
+                    </div>
+                    <div class="input-row">
+                        <div class="priority-selectors">
+                            <div class="priority-selector active" data-priority="high">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <span>High Priority</span>
+                            </div>
+                            <div class="priority-selector" data-priority="medium">
+                                <i class="fas fa-minus-circle"></i>
+                                <span>Medium Priority</span>
+                            </div>
+                            <div class="priority-selector" data-priority="low">
+                                <i class="fas fa-arrow-down-circle"></i>
+                                <span>Low Priority</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="category-selectors">
+                            <div class="category-selector active" data-category="work">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Work</span>
+                            </div>
+                            <div class="category-selector" data-category="personal">
+                                <i class="fas fa-user"></i>
+                                <span>Personal</span>
+                            </div>
+                            <div class="category-selector" data-category="study">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Study</span>
+                            </div>
+                            <div class="category-selector" data-category="other">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <span>Other</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <div class="filter-heading">
+                            <i class="fas fa-tasks"></i>
+                            <span>Task Status</span>
+                        </div>
+                        <div class="filter-options">
+                            <div class="status-filter active" data-status="all">
+                                <i class="fas fa-layer-group"></i>
+                                <span>All Tasks</span>
+                            </div>
+                            <div class="status-filter" data-status="pending">
+                                <i class="fas fa-clock"></i>
+                                <span>Pending</span>
+                            </div>
+                            <div class="status-filter" data-status="inprogress">
+                                <i class="fas fa-spinner"></i>
+                                <span>In Progress</span>
+                            </div>
+                            <div class="status-filter" data-status="completed">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <div class="filter-heading">
+                            <i class="fas fa-flag"></i>
+                            <span>Task Priority</span>
+                        </div>
+                        <div class="filter-options">
+                            <div class="priority-filter active" data-priority="all">
+                                <i class="fas fa-star"></i>
+                                <span>All Priorities</span>
+                            </div>
+                            <div class="priority-filter" data-priority="high">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <span>High</span>
+                            </div>
+                            <div class="priority-filter" data-priority="medium">
+                                <i class="fas fa-minus-circle"></i>
+                                <span>Medium</span>
+                            </div>
+                            <div class="priority-filter" data-priority="low">
+                                <i class="fas fa-arrow-down-circle"></i>
+                                <span>Low</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <div class="filter-heading">
+                            <i class="fas fa-tag"></i>
+                            <span>Task Category</span>
+                        </div>
+                        <div class="filter-options">
+                            <div class="category-filter active" data-category="all">
+                                <i class="fas fa-layer-group"></i>
+                                <span>All Categories</span>
+                            </div>
+                            <div class="category-filter" data-category="work">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Work</span>
+                            </div>
+                            <div class="category-filter" data-category="personal">
+                                <i class="fas fa-user"></i>
+                                <span>Personal</span>
+                            </div>
+                            <div class="category-filter" data-category="study">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Study</span>
+                            </div>
+                            <div class="category-filter" data-category="other">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <span>Other</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tasks-section">
+                    <h2>My Tasks</h2>
+                    <ul id="task-list">
+                        <li class="task-item priority-high" data-status="pending" data-priority="high" data-category="study">
+                            <span class="task-status status-pending">Pending</span>
+                            <div class="task-content">
+                                <span class="task-text">Complete JavaScript project</span>
+                                <div class="task-meta">
+                                    <span class="task-category category-study">Study</span>
+                                    <span class="task-priority priority-high">High Priority</span>
+                                </div>
+                            </div>
+                            <div class="task-actions">
+                                <button class="status-btn"><i class="fas fa-arrow-right"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </li>
+                        <li class="task-item priority-medium" data-status="inprogress" data-priority="medium" data-category="personal">
+                            <span class="task-status status-inprogress">In Progress</span>
+                            <div class="task-content">
+                                <span class="task-text">Lunch with friends</span>
+                                <div class="task-meta">
+                                    <span class="task-category category-personal">Personal</span>
+                                    <span class="task-priority priority-medium">Medium Priority</span>
+                                </div>
+                            </div>
+                            <div class="task-actions">
+                                <button class="status-btn"><i class="fas fa-arrow-right"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </li>
+                        <li class="task-item priority-low" data-status="pending" data-priority="low" data-category="work">
+                            <span class="task-status status-pending">Pending</span>
+                            <div class="task-content">
+                                <span class="task-text">Update project settings</span>
+                                <div class="task-meta">
+                                    <span class="task-category category-work">Work</span>
+                                    <span class="task-priority priority-low">Low Priority</span>
+                                </div>
+                            </div>
+                            <div class="task-actions">
+                                <button class="status-btn"><i class="fas fa-arrow-right"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </main>
+            
+            <aside class="progress-section">
+                <div class="progress-header">
+                    <div class="progress-title">Task Progress</div>
+                    <div class="progress-stats">Updated: <span id="update-time"></span></div>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 33%"></div>
+                </div>
+                
+                <div class="progress-details">
+                    <div class="progress-item">
+                        <div class="progress-label">
+                            <span class="progress-badge badge-pending"></span>
+                            <span>Pending</span>
+                        </div>
+                        <div class="progress-count" id="count-pending">2</div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-label">
+                            <span class="progress-badge badge-inprogress"></span>
+                            <span>In Progress</span>
+                        </div>
+                        <div class="progress-count" id="count-inprogress">1</div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-label">
+                            <span class="progress-badge badge-completed"></span>
+                            <span>Completed</span>
+                        </div>
+                        <div class="progress-count" id="count-completed">0</div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-label">
+                            <span>Total Tasks</span>
+                        </div>
+                        <div class="progress-count" id="count-total">3</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        
+        <footer>
+            <p>© 2023 Task Master | Track your progress and boost productivity</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
